@@ -1,0 +1,39 @@
+<div class="row mt-1">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card border-info mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">Agregar cliente</div>
+            <div class="card-body">
+              <form [formGroup]="form" (ngSubmit)="addClient()">
+                <label for="inputName" class="form-label">Nombre</label> 
+                <input formControlName='name' type="text" class="form-control" placeholder="Ingrese nombre">
+                <label for="Servicio" class="form-label mt-2">Servicio</label>
+                <select formControlName="service" class="form-select" id="Servicio">
+                    <option value="Plan inicio">Plan incio</option>
+                    <option value="Plan plus">Plan plus</option>
+                    <option value="Plan gamma">Plan gamma</option>
+                </select>
+                <div class="form-group">
+                    <label class="form-label mt-2">Precio</label>
+                    <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input formControlName='price' type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mt-2 text-center">
+                        <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
+                    </div>
+                    <div class="col-lg-6 mt-2 text-center">
+                        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Aceptar</button>
+                    </div>
+                </div>        
+                
+              </form>
+              
+            </div>
+        </div>            
+    </div>
+</div>

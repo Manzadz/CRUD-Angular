@@ -1,0 +1,41 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div class='container' *ngIf="!loading">
+    <div class="title"><h4>Listado de clientes</h4>
+        <button type="button" class="btn btn-primary" routerLink="/add">Agregar cliente</button>
+    </div>
+    
+    <table *ngIf="listClients.length>0" class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor= 'let item of listClients' class="table-primary">
+            <td>{{ item.name }}</td>
+            <td>{{ item.service }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+              <button routerLink="/edit/{{ item.id }}" type="button" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+            <td>    
+              <button (click)='deleteClient(item.id!)' type="button" class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+            <td>
+              <button routerLink="/invoice/{{ item.id }}" type="button" class="btn btn-info btn-sm ">Factura</button>
+            </td>
+
+          </tr>
+          
+        </tbody>
+      </table>
+      <h5 *ngIf="listClients.length == 0">No hay productos para mostrar</h5>
+</div>
+
+
+
